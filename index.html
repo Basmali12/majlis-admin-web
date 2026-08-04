@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111d3b">
+  <meta name="description" content="لوحة إدارة مجلس للبلاغات والحظر">
+  <title>مجلس | لوحة الإدارة</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="loginScreen" class="login-screen">
+    <section class="login-card" aria-labelledby="loginTitle">
+      <div class="brand-mark">م</div>
+      <p class="eyebrow">إدارة مجلس</p>
+      <h1 id="loginTitle">دخول المدير</h1>
+      <p>أدخل رمز الإدارة لفتح البلاغات وقائمة الحظر.</p>
+      <form id="loginForm">
+        <label for="adminCode">رمز الدخول</label>
+        <input id="adminCode" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="current-password" required>
+        <p id="loginError" class="error-message" role="alert" hidden>رمز الدخول غير صحيح.</p>
+        <button type="submit">دخول آمن</button>
+      </form>
+      <small>اللوحة تفتح بالرمز فقط ولا تحتاج بريدًا إلكترونيًا</small>
+    </section>
+  </main>
+
+  <main id="adminScreen" class="admin-shell" hidden>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark small">م</div>
+        <div><strong>مجلس</strong><span>الإشراف والحماية</span></div>
+      </div>
+
+      <nav aria-label="أقسام الإدارة">
+        <button class="nav-button active" data-view="reports"><span>⚑</span><b>البلاغات</b><small id="reportsBadge">0</small></button>
+        <button class="nav-button" data-view="bans"><span>⊘</span><b>الحظر</b><small id="bansBadge">0</small></button>
+      </nav>
+
+      <div class="local-status"><i></i> نسخة ويب مستقلة</div>
+      <button id="logoutButton" class="logout-button">تسجيل الخروج</button>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">لوحة المدير</p>
+          <h1 id="pageTitle">بلاغات المستخدمين</h1>
+          <p id="pageDescription">راجع البلاغ واتخذ القرار المناسب</p>
+        </div>
+        <div class="tools">
+          <button id="resetButton" class="secondary-button">إعادة البيانات التجريبية</button>
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="searchInput" type="search" placeholder="بحث بالاسم أو السبب..." aria-label="بحث">
+          </label>
+        </div>
+      </header>
+
+      <div class="info-banner"><b>نسخة GitHub Pages:</b> تعمل بالكامل من ملفات الويب الثلاثة، وتحفظ التعديلات على هذا المتصفح.</div>
+
+      <section class="stats" aria-label="الإحصائيات">
+        <article><span class="stat-icon orange">⚑</span><div><small>بلاغات مفتوحة</small><strong id="openReportsCount">0</strong></div></article>
+        <article><span class="stat-icon red">⊘</span><div><small>حسابات محظورة</small><strong id="bansCount">0</strong></div></article>
+        <article><span class="stat-icon green">✓</span><div><small>تمت المعالجة</small><strong id="resolvedCount">0</strong></div></article>
+      </section>
+
+      <section id="contentList" class="content-list" aria-live="polite"></section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
