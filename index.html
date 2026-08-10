@@ -1,75 +1,55 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111d3b">
-  <meta name="description" content="لوحة إدارة مجلس للبلاغات والحظر">
-  <title>مجلس | لوحة الإدارة</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main id="loginScreen" class="login-screen">
-    <section class="login-card" aria-labelledby="loginTitle">
-      <div class="brand-mark">م</div>
-      <p class="eyebrow">إدارة مجلس</p>
-      <h1 id="loginTitle">دخول المدير</h1>
-      <p>أدخل رمز الإدارة لفتح البلاغات وقائمة الحظر.</p>
-      <form id="loginForm">
-        <label for="adminCode">رمز الدخول</label>
-        <input id="adminCode" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="current-password" required>
-        <p id="loginError" class="error-message" role="alert" hidden>رمز الدخول غير صحيح.</p>
-        <button type="submit">دخول آمن</button>
-      </form>
-      <small>اللوحة تفتح بالرمز فقط ولا تحتاج بريدًا إلكترونيًا</small>
-    </section>
-  </main>
-
-  <main id="adminScreen" class="admin-shell" hidden>
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-mark small">م</div>
-        <div><strong>مجلس</strong><span>الإشراف والحماية</span></div>
-      </div>
-
-      <nav aria-label="أقسام الإدارة">
-        <button class="nav-button active" data-view="reports"><span>⚑</span><b>البلاغات</b><small id="reportsBadge">0</small></button>
-        <button class="nav-button" data-view="bans"><span>⊘</span><b>الحظر</b><small id="bansBadge">0</small></button>
-      </nav>
-
-      <div class="local-status"><i></i> نسخة ويب مستقلة</div>
-      <button id="logoutButton" class="logout-button">تسجيل الخروج</button>
-    </aside>
-
-    <section class="workspace">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">لوحة المدير</p>
-          <h1 id="pageTitle">بلاغات المستخدمين</h1>
-          <p id="pageDescription">راجع البلاغ واتخذ القرار المناسب</p>
-        </div>
-        <div class="tools">
-          <button id="resetButton" class="secondary-button">إعادة البيانات التجريبية</button>
-          <label class="search-box">
-            <span>⌕</span>
-            <input id="searchInput" type="search" placeholder="بحث بالاسم أو السبب..." aria-label="بحث">
-          </label>
-        </div>
-      </header>
-
-      <div class="info-banner"><b>نسخة GitHub Pages:</b> تعمل بالكامل من ملفات الويب الثلاثة، وتحفظ التعديلات على هذا المتصفح.</div>
-
-      <section class="stats" aria-label="الإحصائيات">
-        <article><span class="stat-icon orange">⚑</span><div><small>بلاغات مفتوحة</small><strong id="openReportsCount">0</strong></div></article>
-        <article><span class="stat-icon red">⊘</span><div><small>حسابات محظورة</small><strong id="bansCount">0</strong></div></article>
-        <article><span class="stat-icon green">✓</span><div><small>تمت المعالجة</small><strong id="resolvedCount">0</strong></div></article>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111d3b" />
+    <title>مجلس | لوحة الإدارة</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script type="module" crossorigin src="./assets/index-BZwaYIkt.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D2ctWjKc.css">
+  </head>
+  <body>
+    <main id="login" class="login-shell">
+      <section class="login-card">
+        <div class="brand-mark">م</div>
+        <p class="eyebrow">إدارة دردشة العراق شباب مودل</p>
+        <h1>دخول المدير</h1>
+        <p>الدخول متاح لحساب Google الإداري المصرح به فقط.</p>
+        <div id="google-button" class="google-slot"></div>
+        <p id="login-error" class="error" hidden></p>
+        <div id="login-loading" class="loading" hidden>جارٍ التحقق من صلاحية الحساب…</div>
       </section>
+    </main>
 
-      <section id="contentList" class="content-list" aria-live="polite"></section>
-    </section>
-  </main>
+    <main id="dashboard" class="admin-shell" hidden>
+      <aside class="sidebar">
+        <div class="brand"><div class="brand-mark">م</div><div><strong>مجلس</strong><span>الإدارة والحماية</span></div></div>
+        <nav id="navigation" class="side-nav">
+          <button data-section="users" class="active">👥 <span>المستخدمون</span><b id="users-count">0</b></button>
+          <button data-section="bans">⛔ <span>الحظر</span><b id="bans-count">0</b></button>
+          <button data-section="moderators">♛ <span>المشرفون</span><b id="moderators-count">0</b></button>
+          <button data-section="distinguished">◆ <span>العضو المميز</span><b id="distinguished-count">0</b></button>
+          <button data-section="deletions">🗑 <span>طلبات الحذف</span><b id="deletions-count">0</b></button>
+          <button data-section="reports">⚑ <span>البلاغات</span><b id="reports-count">0</b></button>
+          <button data-section="rooms">▦ <span>الرومات</span><b id="rooms-count">0</b></button>
+        </nav>
+        <div class="secure-badge"><i></i> متصل بـConvex بأمان</div>
+        <button id="logout" class="logout">تسجيل الخروج</button>
+      </aside>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="script.js"></script>
-</body>
+      <section class="workspace">
+        <header class="topbar">
+          <div><p class="eyebrow">لوحة المدير</p><h1 id="section-title">المستخدمون</h1><p id="section-copy">إدارة حسابات Convex الحالية</p></div>
+          <div class="admin-profile"><span id="admin-name">المدير</span><small id="admin-email"></small><button id="refresh" title="تحديث">↻</button></div>
+        </header>
+        <div id="notice" class="notice" hidden></div>
+        <section id="forms"></section>
+        <section class="panel">
+          <div class="panel-head"><input id="search" placeholder="بحث بالاسم أو البريد أو المعرّف…" /><span id="result-count">0 نتيجة</span></div>
+          <div id="content" class="content"></div>
+        </section>
+      </section>
+    </main>
+  </body>
 </html>
