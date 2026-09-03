@@ -3,60 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#111d3b" />
-    <title>مجلس | لوحة الإدارة</title>
-    <style>[hidden]{display:none!important}</style>
-    <script type="module" crossorigin src="./assets/index-TvED7WdI.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-9mj_nQUG.css">
+    <meta name="theme-color" content="#123d2b" />
+    <title>إدارة علاكة سوق</title>
+    <script type="module" crossorigin src="./assets/index-lVywA9Nd.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bnpp0ANv.css">
   </head>
   <body>
-    <main id="login" class="login-shell">
-      <section class="login-card">
-        <div class="brand-mark">م</div>
-        <p class="eyebrow">إدارة دردشة العراق شباب مودل</p>
-        <h1>دخول المدير</h1>
-        <p>سجّل برقم الهاتف وكلمة السر. لا تُفتح اللوحة إلا إذا كان حسابك يملك دور المدير داخل Convex.</p>
-        <form id="admin-login-form" class="toolbar-form">
-          <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="رقم الهاتف" required />
-          <input name="password" type="password" autocomplete="current-password" placeholder="كلمة السر" required />
-          <button type="submit">دخول الإدارة</button>
-        </form>
-        <p id="login-error" class="error" hidden></p>
-        <div id="login-loading" class="loading" hidden>جارٍ التحقق من صلاحية الحساب…</div>
-      </section>
-    </main>
-
-    <main id="dashboard" class="admin-shell" hidden>
-      <aside class="sidebar">
-        <div class="brand"><div class="brand-mark">م</div><div><strong>مجلس</strong><span>الإدارة والحماية</span></div></div>
-        <nav id="navigation" class="side-nav">
-          <button data-section="users" class="active">👥 <span>المستخدمون</span><b id="users-count">0</b></button>
-          <button data-section="bans">⛔ <span>الحظر</span><b id="bans-count">0</b></button>
-          <button data-section="moderators">♛ <span>المشرفون</span><b id="moderators-count">0</b></button>
-          <button data-section="distinguished">◆ <span>العضو المميز</span><b id="distinguished-count">0</b></button>
-          <button data-section="roleMedia">✦ <span>صور الإدارة</span><b id="roleMedia-count">0</b></button>
-          <button data-section="chatBackground">▧ <span>خلفية الدردشة</span><b id="chatBackground-count">0</b></button>
-          <button data-section="deletions">🗑 <span>طلبات الحذف</span><b id="deletions-count">0</b></button>
-          <button data-section="reports">⚑ <span>البلاغات</span><b id="reports-count">0</b></button>
-          <button data-section="rooms">▦ <span>الرومات</span><b id="rooms-count">0</b></button>
-          <button data-section="bot">🤖 <span>البوت</span><b id="bot-count">—</b></button>
-        </nav>
-        <div class="secure-badge"><i></i> متصل بـConvex بأمان</div>
-        <button id="logout" class="logout">تسجيل الخروج</button>
-      </aside>
-
-      <section class="workspace">
-        <header class="topbar">
-          <div><p class="eyebrow">لوحة المدير</p><h1 id="section-title">المستخدمون</h1><p id="section-copy">إدارة حسابات Convex الحالية</p></div>
-          <div class="admin-profile"><span id="admin-name">المدير</span><small id="admin-email"></small><button id="refresh" title="تحديث">↻</button></div>
-        </header>
-        <div id="notice" class="notice" hidden></div>
-        <section id="forms"></section>
-        <section class="panel">
-          <div class="panel-head"><input id="search" inputmode="numeric" placeholder="البحث بواسطة ID أو الاسم…" /><span id="result-count">0 نتيجة</span></div>
-          <div id="content" class="content"></div>
-        </section>
-      </section>
-    </main>
+    <div id="root"></div>
   </body>
 </html>
