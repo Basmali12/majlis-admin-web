@@ -1,0 +1,26 @@
+{
+  "name": "الإدارة العامة لعلاكة",
+  "short_name": "إدارة علاكة",
+  "description": "تطبيق الإدارة العامة لعلاكة لإدارة التجار والمتاجر",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#123d2b",
+  "theme_color": "#123d2b",
+  "icons": [
+    {
+      "src": "./icons/general-admin-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/general-admin-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
